@@ -73,6 +73,7 @@ end
 
 i = execute "install system-wide RVM" do
   user      "root"
+  environment ({'GIT_SSL_NO_VERIFY' => 'true'})
   command   <<-CODE
     bash -c "bash <( curl -Ls #{node['rvm']['installer_url']} )#{script_flags}"
   CODE
